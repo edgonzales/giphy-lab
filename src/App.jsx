@@ -1,11 +1,12 @@
 // import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import GiphyShow from './components/GiphyShow/GiphyShow'
 import SearchBar from './components/SearchBar/SearchBar'
 
 function App() {
-  // const [count, setCount] = useState(0)
+const [giphy, setGiphy] = useState({});
+// const [searchGiphy, setSearchGiphy] = 
 
   useEffect(() => {
     console.log('USE EFFECT IS RUNNING!')
@@ -16,6 +17,7 @@ function App() {
         const response = await fetch(endpoint);
         const body = await response.json(); 
         console.log(body);
+        setGiphy(body.data[0]);
       } catch (err) {
         console.log(err);
       }
@@ -26,7 +28,7 @@ function App() {
   return (
     <>
       <SearchBar />
-      <GiphyShow />
+      <GiphyShow giphy={giphy} />
     </>
   )
 }
