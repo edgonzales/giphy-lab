@@ -1,3 +1,7 @@
+* {
+  background-color: rgb(127, 118, 118);
+  color: rgb(129, 226, 129)
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
