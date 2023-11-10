@@ -6,11 +6,11 @@ import SearchBar from './components/SearchBar/SearchBar'
 
 function App() {
 const [giphy, setGiphy] = useState({});
-// const [searchGiphy, setSearchGiphy] = 
+const [searchGiphy, setSearchGiphy] = useState("fly");
 
   useEffect(() => {
     console.log('USE EFFECT IS RUNNING!')
-    const endpoint = "http://api.giphy.com/v1/gifs/search?q=run&api_key=ZeCa7IAoWGQSOizaBTCKGrhWJMWZVkxK&limit=1";
+    const endpoint = `http://api.giphy.com/v1/gifs/search?q=${searchGiphy}n&api_key=ZeCa7IAoWGQSOizaBTCKGrhWJMWZVkxK&limit=1`;
 
     async function getGyphy() {
       try {
@@ -23,11 +23,12 @@ const [giphy, setGiphy] = useState({});
       }
     }
     getGyphy();
-  }, []);
+  }, [searchGiphy]);
 
   return (
     <>
-      <SearchBar />
+      <h1>Search for Giphys!</h1>
+      <SearchBar setSearchGiphy={setSearchGiphy} />
       <GiphyShow giphy={giphy} />
     </>
   )

@@ -4,7 +4,6 @@ export default function GiphyShow({giphy}){
     
     return(
         <>
-        <h1>This is the giphy show!</h1>
         <img src={url} alt="Initial Gif"/>
         </>
     )
